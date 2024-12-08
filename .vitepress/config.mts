@@ -54,7 +54,7 @@ export default defineConfig({
     ],
 
     editLink: {
-      pattern: 'https://github.com/gowok/docs/edit/main/:path',
+      pattern: 'https://github.com/gowok/docs/edit/master/:path',
       text: 'Edit this page on GitHub',
     },
 
