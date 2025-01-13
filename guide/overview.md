@@ -1,6 +1,6 @@
 # Overview
 
-Gowok is a library that contains a lot of functions that help you to build [Golang](https://go.dev) project.
+Gowok is a library that contains a lot of functions that help you to build [Go](https://go.dev) project.
 
 It has some utilities like:
 * config loader,
@@ -23,10 +23,15 @@ Don't worry about your work anymore.
 
 ## Use Cases
 
-* **Backend Service (REST API and GRPC)**
+* **REST API Backend Service**
 
-    Gowok ships with built-in support for HTTP server which you can used
-    to build REST API and GRPC.
+    Gowok ships with built-in support for HTTP server through
+    the net/http which you can used to build REST API.
+
+* **Microservice with GRPC**
+
+    Gowok also provide microservices communication via GRPC,
+    it possible to works with HTTP in parallel.
 
 * **Event Driven Listener (Worker)**
 
@@ -37,7 +42,9 @@ Don't worry about your work anymore.
 
 Gowok aims to be easy to use that can increase developer's productivity.
 All features are designed to follow official and community coding pattern.
+Plus, the libraries used are as familiar as possible to many developers.
 Everything understandable here.
+
 
 For example, if you ask how to run project using Gowok.
 The answer would be easy.
@@ -46,8 +53,7 @@ Yappp..!! Just load the project then call `Run()` function.
 
 Example:
 ```go
-project := gowok.Get()
-project.Run()
+gowok.Get().Run()
 ```
 
 That easy, broh!

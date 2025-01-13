@@ -1,4 +1,4 @@
-# Simple REST API
+# Project Setup
 
 ## Prerequisites
 * [Go](https://go.dev) version 1.22 or higher
