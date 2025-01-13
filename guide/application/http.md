@@ -19,6 +19,15 @@ func ConfigureRoute(project *gowok.Project) {
 }
 ```
 
+3. Register this func into `project.Configures`.
+```go
+func main() {
+    gowok.Get().
+        Configures(ConfigureRoute).
+        Run()
+}
+```
+
 ## Basic
 All route can registered by this way.
 ```go
@@ -92,9 +101,10 @@ Your career brighter right now 😎
 ```go
 package main
 
+import "github.com/gowok/gowok/router"
+
 func main() {
-    gowok.
-        Get().
+    gowok.Get().
         Configures(ConfigureRoute).
         Run()
 }
