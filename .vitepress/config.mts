@@ -16,7 +16,7 @@ export default defineConfig({
     ],
 
     sidebar: {
-      '/guide/' : [
+      '/guide/': [
         {
           // text: 'Examples',
           base: '/guide/',
@@ -24,8 +24,10 @@ export default defineConfig({
             { text: 'Overview', link: 'overview' },
             { text: 'Getting Started', link: 'getting-started' },
             { text: 'Configuration', link: 'configuration' },
+            { text: 'Project', link: 'project' },
             { text: 'Runner', link: 'runner' },
             { text: 'Optional (Nil Safety)', link: 'optional' },
+            { text: 'Singleton', link: 'singleton' },
           ]
         },
         {
