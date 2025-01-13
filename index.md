@@ -48,6 +48,15 @@ const members = [
       { icon: 'linkedin', link: 'https://linkedin.com/in/ekokurniawann' }
     ]
   },
+  {
+    avatar: 'https://www.github.com/born2ngopi.png',
+    name: 'born2ngopi',
+    title: 'Maintainer',
+    links: [
+      { icon: 'github', link: 'https://github.com/born2ngopi' },
+      { icon: 'linkedin', link: 'https://linkedin.com/in/born2ngopi' }
+    ]
+  },
 ]
 </script>
 
