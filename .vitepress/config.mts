@@ -32,6 +32,7 @@ export default defineConfig({
             { text: 'Runner', link: 'runner' },
             { text: 'Some (Nil Safety)', link: 'some' },
             { text: 'Singleton', link: 'singleton' },
+            { text: 'SQL', link: 'sql' },
           ]
         },
         {
