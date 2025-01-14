@@ -27,7 +27,7 @@ export default defineConfig({
             { text: 'Configuration', link: 'configuration' },
             { text: 'Project', link: 'project' },
             { text: 'Runner', link: 'runner' },
-            { text: 'Optional (Nil Safety)', link: 'optional' },
+            { text: 'Some (Nil Safety)', link: 'some' },
             { text: 'Singleton', link: 'singleton' },
           ]
         },
