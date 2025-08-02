@@ -6,6 +6,9 @@ hero:
   name: "Gowok"
   text: "Golang Premwok"
   tagline: Everything your project needs
+  image:
+    src: /gowok-logo-docs.png
+    alt: VitePress
   actions:
     - theme: brand
       text: Overview
@@ -58,7 +61,22 @@ const members = [
     ]
   },
 ]
+
+const thanksTo = [
+  {
+    avatar: 'https://ugc.production.linktr.ee/pWa4BPYcRtmOyhbms4qr_SBV5BvIkJT2k174N?io=true&size=avatar-v3_0',
+    name: 'yusril.muhtadi',
+    title: 'for making our logo',
+    links: [
+      { icon: 'gmail', link: 'mailto:muhtadi.yusril@gmail.com' },
+      { icon: 'instagram', link: 'https://instagram.com/yusril.muhtadi' }
+    ]
+  },
+]
 </script>
 
 ## Our Teams
-<VPTeamMembers size="small" :members="members" />
+<VPTeamMembers size="medium" :members="members" />
+
+## Thanks To
+<VPTeamMembers size="medium" :members="thanksTo" />

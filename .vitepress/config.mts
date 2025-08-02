@@ -5,6 +5,7 @@ export default defineConfig({
   base: '/docs',
   title: "Gowok",
   description: "Golang Premwok",
+  head: [['link', { rel: 'icon', href: '/docs/favicon.ico' }]],
   themeConfig: {
     search: {
       provider: 'local',
