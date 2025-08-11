@@ -1,4 +1,4 @@
-# HTTP
+# Web
 Interface to do web server activities, most of all are routing.
 This page will cover how to routing with all possible use cases.
 
@@ -10,16 +10,7 @@ func ConfigureRoute(project *gowok.Project) {
 }
 ```
 
-2. Import router package
-```go
-import "github.com/gowok/gowok/router"
-
-func ConfigureRoute(project *gowok.Project) {
-    // TODO: routes goes here
-}
-```
-
-3. Register this func into `project.Configures`.
+2. Register this func into `project.Configures`.
 ```go
 func main() {
     gowok.Get().
@@ -31,12 +22,12 @@ func main() {
 ## Basic
 All route can registered by this way.
 ```go
-router.HandleFunc(method, path, http.HandlerFunc)
+gowok.Router().HandleFunc(method, path, http.HandlerFunc)
 ```
 
 Example:
 ```go
-router.HandleFunc("GET", "/", func(w http.ResponseWriter, r *http.Request) {
+gowok.Router().HandleFunc("GET", "/", func(w http.ResponseWriter, r *http.Request) {
     // TODO: your logics goes here
 })
 ```
@@ -49,27 +40,27 @@ Most important, this will look like something familiar.
 
 ### Get
 ```go
-router.Get(path, http.HandlerFunc)
+gowok.Router().Get(path, http.HandlerFunc)
 ```
 
 ### Post
 ```go
-router.Post(path, http.HandlerFunc)
+gowok.Router().Post(path, http.HandlerFunc)
 ```
 
 ### Put
 ```go
-router.Put(path, http.HandlerFunc)
+gowok.Router().Put(path, http.HandlerFunc)
 ```
 
 ### Patch
 ```go
-router.Patch(path, http.HandlerFunc)
+gowok.Router().Patch(path, http.HandlerFunc)
 ```
 
 ### Delete
 ```go
-router.Delete(path, http.HandlerFunc)
+gowok.Router().Delete(path, http.HandlerFunc)
 ```
 
 ## Group
@@ -79,12 +70,12 @@ So, you no need to write same thing any more.
 
 To create a group you can do this.
 ```go
-groupName := router.Group(prefix)
+groupName := gowok.Router().Group(prefix)
 ```
 
 Example:
 ```go
-products := router.Group("/products")
+products := gowok.Router().Group("/products")
 products.Get("", func(w http.ResponseWriter, r *http.Request) {})
 products.Post("", func(w http.ResponseWriter, r *http.Request) {})
 products.Put("", func(w http.ResponseWriter, r *http.Request) {})
@@ -101,7 +92,7 @@ Your career brighter right now 😎
 ```go
 package main
 
-import "github.com/gowok/gowok/router"
+import "github.com/gowok/gowok"
 
 func main() {
     gowok.Get().
@@ -110,9 +101,9 @@ func main() {
 }
 
 func ConfigureRoute(project *gowok.Project) {
-    router.HandleFunc("GET", "/", func(w http.ResponseWriter, r *http.Request) {})
+    gowok.Router().HandleFunc("GET", "/", func(w http.ResponseWriter, r *http.Request) {})
 
-    products := router.Group("/products")
+    products := gowok.Router().Group("/products")
     products.Get("", func(w http.ResponseWriter, r *http.Request) {})
     products.Post("", func(w http.ResponseWriter, r *http.Request) {})
     products.Put("", func(w http.ResponseWriter, r *http.Request) {})

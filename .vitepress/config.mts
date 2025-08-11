@@ -34,14 +34,7 @@ export default defineConfig({
             { text: 'Some (Nil Safety)', link: 'some' },
             { text: 'Singleton', link: 'singleton' },
             { text: 'SQL', link: 'sql' },
-          ]
-        },
-        {
-          text: 'Application',
-          base: '/guide/application/',
-          collapsed: false,
-          items: [
-            { text: 'HTTP', link: 'http' },
+            { text: 'Web', link: 'web' },
             { text: 'GRPC', link: 'grpc' }
           ]
         },

@@ -8,23 +8,22 @@ how to read all values.
 
 ## Structure
 
-* `app`
-    * `web`
-        * `enabled` (bool, default: false) - It will make HTTP server start or not.
-        * `host` (string) - Address that will be used for HTTP server listener. Example: `localhost:8080`, `:8080`.
-        * `log`
-            * `enabled` (bool, default: false) - It will make HTTP log show or not.
-        * `cors`
-            * `enabled` (bool, default: false) - It will make CORS middleware enabled or not.
-            * `allow_origins` (string) - List of allowed origins. Format: address1,address2,address3. Example: `example.com,sub.example.com`.
-            * `allow_methods` (string) - List of allowed methods. Format: method1,method2,method3. Example: `GET,POST,PUT,DELETE`.
-            * `allow_headers` (string) - List of allowed headers. Format: headerKey1,headerKey2. Example: `Authorization,X-API-Key`.
-        * `pprof`
-            * `enabled` (default: false) - It will make PProf interface accessible or not.
-            * `prefix` (string) - Path that Pprof interface can accessed. Example: `/system/`.
-    * `grpc`
-        * `enabled` (default: false) - It will make GRPC start or not.
-        * `host` (string) - Address that will be used for GRPC server listener. Example: `localhost:50051`,`:50051`.
+* `web`
+    * `enabled` (bool, default: false) - It will make HTTP server start or not.
+    * `host` (string) - Address that will be used for HTTP server listener. Example: `localhost:8080`, `:8080`.
+    * `log`
+        * `enabled` (bool, default: false) - It will make HTTP log show or not.
+    * `cors`
+        * `enabled` (bool, default: false) - It will make CORS middleware enabled or not.
+        * `allow_origins` (string) - List of allowed origins. Format: address1,address2,address3. Example: `example.com,sub.example.com`.
+        * `allow_methods` (string) - List of allowed methods. Format: method1,method2,method3. Example: `GET,POST,PUT,DELETE`.
+        * `allow_headers` (string) - List of allowed headers. Format: headerKey1,headerKey2. Example: `Authorization,X-API-Key`.
+    * `pprof`
+        * `enabled` (default: false) - It will make PProf interface accessible or not.
+        * `prefix` (string) - Path that Pprof interface can accessed. Example: `/system/`.
+* `grpc`
+    * `enabled` (default: false) - It will make GRPC start or not.
+    * `host` (string) - Address that will be used for GRPC server listener. Example: `localhost:50051`,`:50051`.
 * `security`
     * `secret` (string) - Random secret used for encrypt or hash actions, like JWT creation, password hash salt, etc.
 * `sql`
