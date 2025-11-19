@@ -5,7 +5,7 @@ Runner will be used to manage how to run the project.
 
 Let's see this example:
 ```go
-gowok.Get().Run()
+gowok.Run()
 ```
 `Run()` function will start the runner
 and everything will running immediately.

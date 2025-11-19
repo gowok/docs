@@ -29,7 +29,7 @@ export default defineConfig({
             { text: 'Overview', link: 'overview' },
             { text: 'Getting Started', link: 'getting-started' },
             { text: 'Configuration', link: 'configuration' },
-            { text: 'Project', link: 'project' },
+            // { text: 'Project', link: 'project' },
             { text: 'Runner', link: 'runner' },
             { text: 'Some (Nil Safety)', link: 'some' },
             { text: 'Singleton', link: 'singleton' },

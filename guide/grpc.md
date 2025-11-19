@@ -22,7 +22,7 @@ func ConfigureGRPC(project *gowok.Project) {
 3. Register this func into `project.Configures`.
 ```go
 func main() {
-    gowok.Get().
+    gowok.
         Configures(ConfigureGRPC).
         Run()
 }

@@ -13,7 +13,7 @@ func ConfigureRoute(project *gowok.Project) {
 2. Register this func into `project.Configures`.
 ```go
 func main() {
-    gowok.Get().
+    gowok.
         Configures(ConfigureRoute).
         Run()
 }

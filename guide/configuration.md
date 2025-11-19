@@ -38,7 +38,7 @@ how to read all values.
 To read configuration values, you can use this:
 ```go
 fmt.Println(
-    gowok.Get().Config,
+    gowok.Config,
 )
 ```
 This shows object of configuration that serialized into `gowok.Config` struct.
@@ -46,7 +46,7 @@ This shows object of configuration that serialized into `gowok.Config` struct.
 If you want something raw, use this:
 ```go
 fmt.Println(
-    gowok.Get().ConfigMap,
+    gowok.ConfigMap,
 )
 ```
 This shows configuration as `map[string]any`,

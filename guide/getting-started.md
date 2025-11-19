@@ -17,7 +17,7 @@ package main
 import "github.com/gowok/gowok"
 
 func main() {
-	gowok.Get().Run()
+	gowok.Run()
 }
 ```
 
@@ -33,7 +33,7 @@ web:
 ## Running the Project
 Run this command inside your project.
 ```bash
-go run main.go
+go run main.go --config config.yaml
 ```
 
 It will show output like this:

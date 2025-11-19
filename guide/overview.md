@@ -53,7 +53,7 @@ Yappp..!! Just load the project then call `Run()` function.
 
 Example:
 ```go
-gowok.Get().Run()
+gowok.Run()
 ```
 
 That easy, broh!
