@@ -44,6 +44,7 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: 'Project Setup', link: 'project-setup' },
+            { text: 'REST API', link: 'rest-api' },
           ]
         },
         { text: 'Config & API Reference', link: 'https://pkg.go.dev/github.com/gowok/gowok' },
