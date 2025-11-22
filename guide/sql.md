@@ -32,13 +32,14 @@ Now, you ready to use SQL in your project.
 SQL operations done by the connection.
 To get it, you can do this way:
 ```go
-import "github.com/gowok/gowok/sql"
+import "github.com/gowok/gowok"
 
-sql.DB()
+gowok.SQL.Conn()
+
 
 // or with name
-sql.DB("master")
-sql.DB("transactions")
+gowok.SQL.Conn("master")
+gowok.SQL.Conn("transactions")
 ```
 
 * If you get connection without define the name or
@@ -50,7 +51,7 @@ Since getting SQL connection gives you `some.Some`, you need to unwrap value by 
 Example:
 ```go
 var result int
-err := sql.DB("master").OrPanic().QueryRow("SELECT 1").Scan(&result)
+err := gowok.SQL.Conn("master").OrPanic().QueryRow("SELECT 1").Scan(&result)
 if err != nil {
     fmt.Println(err)
     return
