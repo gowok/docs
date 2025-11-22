@@ -5,16 +5,16 @@ This page will cover how to do that.
 ## Preparations
 1. You need to create a function that follow `gowok.ConfigureFunc`.
 ```go
-func ConfigureGRPC(project *gowok.Project) {
+func ConfigureGRPC() {
     // TODO: register services here
 }
 ```
 
 2. Import GRPC package
 ```go
-import "github.com/gowok/gowok/grpc"
+import "github.com/gowok/gowok"
 
-func ConfigureGRPC(project *gowok.Project) {
+func ConfigureGRPC() {
     // TODO: register services here
 }
 ```
@@ -32,12 +32,12 @@ func main() {
 Since server creation and spawning are handled by Gowok, you only need to register GRPC services.
 
 ```go
-RegisterYourServiceServer(grpc.Server(), YourService{})
+RegisterYourServiceServer(gowok.GRPC.Server, YourService{})
 ```
 
 Example:
 ```go
-service.RegisterProductServer(grpc.Server(), service.ProductService{})
+service.RegisterProductServer(gowok.GRPC.Server, service.ProductService{})
 ```
 
 After all services registered, client can do interaction normally.
