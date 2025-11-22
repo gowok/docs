@@ -1,6 +1,6 @@
 # REST API
 First, you have to [make a project](./project-setup),
-you can learn in [Peroject Setup](./project-setup) section.
+you can learn in [Project Setup](./project-setup) section.
 
 ## Make Configuration
 1. Create file with name `config.yaml`.
@@ -9,6 +9,12 @@ you can learn in [Peroject Setup](./project-setup) section.
 web:
     enabled: true
     host: :8080
+
+sql:
+  default:
+    enabled: true
+    driver: sqlite3
+    dsn: ":memory:"
 ```
 It means you enabled the web server and the host will be `:8080`.
 
@@ -21,22 +27,92 @@ import (
 	"net/http"
 
 	"github.com/gowok/gowok"
+	_ "github.com/mattn/go-sqlite3"
 )
 
-func ConfigureRoute(p *gowok.Project) {
+type User struct {
+	ID       string
+	Email    string
+	Password string
+}
+
+func ConfigureDB() {
+	db := gowok.SQL.Conn().OrPanic()
+
+	_, err := db.Exec(`CREATE TABLE IF NOT EXISTS users (
+			id TEXT PRIMARY KEY,
+			email TEXT NOT NULL,
+			password TEXT NOT NULL
+		)`)
+	if err != nil {
+		panic(err)
+	}
+}
+
+func ConfigureRoute() {
 	r := gowok.Web
+	db := gowok.SQL.Conn().OrPanic()
+
 	r.Get("/users", func(w http.ResponseWriter, r *http.Request) {
+		rows, err := db.QueryContext(r.Context(), "SELECT * FROM users")
+		if err != nil {
+			response.New(w).InternalServerError(err)
+			return
+		}
+		defer rows.Close()
+
+		users := make([]User, 0)
+		for rows.Next() {
+			user := User{}
+			err := rows.Scan(&user.ID, &user.Email, &user.Password)
+			if err != nil {
+				continue
+			}
+			users = append(users, user)
+		}
+
+		response.New(w).Ok(users)
 	})
+
 	r.Post("/users", func(w http.ResponseWriter, r *http.Request) {
+		input := User{}
+		err := request.New(r).JSON(&input)
+		if err != nil {
+			response.New(w).BadRequest(err)
+			return
+		}
+
+		_, err = db.ExecContext(r.Context(),
+            `INSERT INTO users VALUES(?, ?, ?)`,
+			input.ID,
+			input.Email,
+			input.Password,
+		)
+		if err != nil {
+			response.New(w).InternalServerError(err)
+			return
+		}
+
+		response.New(w).Created()
 	})
-	r.Put("/users/{id}", func(w http.ResponseWriter, r *http.Request) {
-	})
+
 	r.Delete("/users/{id}", func(w http.ResponseWriter, r *http.Request) {
+		_, err := db.ExecContext(r.Context(),
+			`DELETE FROM users WHERE id = ?`,
+			r.PathValue("id"),
+		)
+		if err != nil {
+			response.New(w).InternalServerError(err)
+			return
+		}
+
+		response.New(w).Created()
 	})
 }
 
 func main() {
 	gowok.Configures(
+        ConfigureDB,
 		ConfigureRoute,
 	)
 	gowok.Run()
