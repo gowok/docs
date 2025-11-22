@@ -19,16 +19,21 @@ how to read all values.
         * `allow_methods` (string) - List of allowed methods. Format: method1,method2,method3. Example: `GET,POST,PUT,DELETE`.
         * `allow_headers` (string) - List of allowed headers. Format: headerKey1,headerKey2. Example: `Authorization,X-API-Key`.
     * `pprof`
-        * `enabled` (default: false) - It will make PProf interface accessible or not.
+        * `enabled` (bool, default: false) - It will make PProf interface accessible or not.
         * `prefix` (string) - Path that Pprof interface can accessed. Example: `/system/`.
 * `grpc`
-    * `enabled` (default: false) - It will make GRPC start or not.
+    * `enabled` (bool, default: false) - It will make GRPC start or not.
     * `host` (string) - Address that will be used for GRPC server listener. Example: `localhost:50051`,`:50051`.
+
+* `net`
+    * `enabled` (bool, default: false) - It will make GRPC start or not.
+    * `type` (string) - Type of net listener, you can choose one of `tcp` or `unix`.
+    * `address` (string) - Address that will be used for net listener. Example: `localhost:5431`,`:5431`,`/tmp/my.sock`.
 * `security`
     * `secret` (string) - Random secret used for encrypt or hash actions, like JWT creation, password hash salt, etc.
 * `sql`
     * $name (string) - Any text will used for connection name.
-        * `enabled` (default: false) - It will make this SQL connection active or not.
+        * `enabled` (bool, default: false) - It will make this SQL connection active or not.
         * `driver` (string) - Define driver that used to interact to SQL server.
         * `dsn` (string) - Connection string that used to connect to SQL server. This format depends on driver used.
 * `others`
@@ -46,7 +51,7 @@ This shows object of configuration that serialized into `gowok.Config` struct.
 If you want something raw, use this:
 ```go
 fmt.Println(
-    gowok.ConfigMap,
+    gowok.Config.Map(),
 )
 ```
 This shows configuration as `map[string]any`,
