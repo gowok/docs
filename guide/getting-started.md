@@ -30,6 +30,15 @@ web:
   host: :8080
 ```
 
+Project structure will looks like this:
+```
+.
+├── config.yaml
+├── go.mod
+├── go.sum
+└── main.go
+```
+
 ## Running the Project
 Run this command inside your project.
 ```bash
